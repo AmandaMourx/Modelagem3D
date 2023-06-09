@@ -8,7 +8,10 @@ const scene = new THREE.Scene();
 
 //creating the material that will be in the scene
 const geometry = new THREE.SphereGeometry(3, 64, 64);
-const material = new THREE.MeshStandardMaterial({ color: "#00ff83", })
+const material = new THREE.MeshStandardMaterial({ 
+    color: "#00ff83",
+    roughness: 0.5  //the quantity the material wil shine, the brigthness 
+})
 
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
@@ -24,6 +27,7 @@ const sizes = {
 
 const light = new THREE.PointLight(0xffffff, 1, 100);
 light.position.set(0, 10, 10);
+light.intensity = 1.25;  //defaut is one
 scene.add(light);
 
 //camera
@@ -93,3 +97,6 @@ const loop = () => {
 loop();
 
 //and this code above will let the geo/figure estatic in the default size and position
+
+
+//to animate the figure like changing the scale of it, we can use the library gsap
